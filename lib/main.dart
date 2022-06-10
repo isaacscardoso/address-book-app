@@ -1,3 +1,4 @@
+import 'package:address_book_app/views/user_list.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -7,8 +8,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: MyHomePage(),
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.lightBlue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: const MyHomePage(),
     );
   }
 }
@@ -18,8 +23,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Colors.blue,
-    );
+    return const UserList();
   }
 }
