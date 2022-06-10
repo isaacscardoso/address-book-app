@@ -6,8 +6,6 @@ const Map<String, User> dummyUsers = {
     name: 'Isaac',
     phone: '55 (xx) x xxxx-xxxx',
     email: 'isaac@email.com',
-    avatarUrl:
-        'https://lh3.googleusercontent.com/E8h_dygRjI1q9rpXb7TZcWIhEXITKgCwok5L0bIGCXSvWVY4-jsLyEuPMrd9JI7HwNd2T2z1TJg6cWAmoNy8VcGyMw',
   ),
   '2': User(
     id: '2',
@@ -21,8 +19,16 @@ const Map<String, User> dummyUsers = {
     id: '3',
     name: 'Maria',
     phone: '55 (xx) x xxxx-xxxx',
-    email: 'maria@email.com',
+    email: '',
     avatarUrl:
         'https://lh3.googleusercontent.com/aWh8r7tzVGjuBL7KLt_JsCHjSjdAMfsH2YLTxSO7mrOQSrA4hVR051x-CP2Fh76SnHKQbdPOBJjAFvYxdKW0Z9ax',
+  ),
+  '4': User(
+    id: '4',
+    name: 'Katia',
+    phone: '55 (xx) x xxxx-xxxx',
+    email: 'katia@email.com',
+    avatarUrl:
+        'https://lh3.googleusercontent.com/lITWrBmk17F1fVAb1tDGFnnNaNWvPGV7r-KKQO7QHyFUXglCYIF4nKPC_z7K-XnEL47I29l2OY8LaqQRR67iV_0eCKU',
   ),
 };

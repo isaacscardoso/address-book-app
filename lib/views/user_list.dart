@@ -1,6 +1,8 @@
 import 'package:address_book_app/data/dummy_users.dart';
 import 'package:flutter/material.dart';
 
+import '../components/user_tile.dart';
+
 class UserList extends StatelessWidget {
   const UserList({Key? key}) : super(key: key);
 
@@ -20,7 +22,8 @@ class UserList extends StatelessWidget {
       body: ListView.builder(
         padding: const EdgeInsets.only(top: 24.0),
         itemCount: dummyUsers.length,
-        itemBuilder: (context, i) => Text(dummyUsers.values.elementAt(i).name),
+        itemBuilder: (context, i) =>
+            UserTile(user: dummyUsers.values.elementAt(i)),
       ),
     );
   }
