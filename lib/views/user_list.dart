@@ -1,10 +1,13 @@
 import 'package:address_book_app/data/dummy_users.dart';
+import 'package:address_book_app/models/user.dart';
 import 'package:flutter/material.dart';
 
 import '../components/user_tile.dart';
 
 class UserList extends StatelessWidget {
-  const UserList({Key? key}) : super(key: key);
+  UserList({Key? key}) : super(key: key);
+
+  final Map<String, User> users = {...dummyUsers};
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +33,8 @@ class UserList extends StatelessWidget {
       ),
       body: ListView.builder(
         padding: const EdgeInsets.only(top: 24.0),
-        itemCount: dummyUsers.length,
-        itemBuilder: (context, i) =>
-            UserTile(user: dummyUsers.values.elementAt(i)),
+        itemCount: users.length,
+        itemBuilder: (context, i) => UserTile(user: users.values.elementAt(i)),
       ),
     );
   }
