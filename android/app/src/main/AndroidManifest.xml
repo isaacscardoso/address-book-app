@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.isaacscardosoblues.address_book_app">
    <application
-        android:label="address_book_app"
+        android:label="Meus Contatos"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
