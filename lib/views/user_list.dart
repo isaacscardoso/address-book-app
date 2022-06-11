@@ -18,6 +18,15 @@ class UserList extends StatelessWidget {
             ),
           ),
         ),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.person_add_alt_1,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
       body: ListView.builder(
         padding: const EdgeInsets.only(top: 24.0),
