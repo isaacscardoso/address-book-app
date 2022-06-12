@@ -1,14 +1,14 @@
-import 'package:address_book_app/data/dummy_users.dart';
+import 'package:address_book_app/provider/user_provider.dart';
 import 'package:flutter/material.dart';
-import '../components/user_tile.dart';
+import 'package:address_book_app/components/user_tile.dart';
+import 'package:provider/provider.dart';
 
 class UserList extends StatelessWidget {
-  UserList({Key? key}) : super(key: key);
-
-  final users = {...dummyUsers};
+  const UserList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final UserProvider users = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -29,8 +29,8 @@ class UserList extends StatelessWidget {
       ),
       body: ListView.builder(
         padding: const EdgeInsets.only(top: 24.0),
-        itemCount: users.length,
-        itemBuilder: (context, i) => UserTile(user: users.values.elementAt(i)),
+        itemCount: users.count,
+        itemBuilder: (context, i) => UserTile(user: users.byIndex(i)),
       ),
     );
   }
