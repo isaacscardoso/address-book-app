@@ -1,4 +1,6 @@
 import 'package:address_book_app/provider/user_provider.dart';
+import 'package:address_book_app/routes/app_routes.dart';
+import 'package:address_book_app/views/user_form.dart';
 import 'package:address_book_app/views/user_list.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,7 +24,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.lightBlue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const MyHomePage(),
+      // home: const MyHomePage(),
+      routes: {
+        AppRoutes.home: (_) => const MyHomePage(),
+        AppRoutes.userForm: (_) => const UserForm()
+      },
     );
   }
 }

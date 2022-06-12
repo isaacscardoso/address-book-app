@@ -1,5 +1,6 @@
 import 'package:address_book_app/components/user_avatar.dart';
 import 'package:address_book_app/models/user.dart';
+import 'package:address_book_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 class UserTile extends StatelessWidget {
@@ -18,7 +19,12 @@ class UserTile extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(
+                AppRoutes.userForm,
+                arguments: user,
+              );
+            },
             icon: const Icon(Icons.edit, color: Colors.blue),
           ),
           IconButton(
