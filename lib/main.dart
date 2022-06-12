@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       // home: const MyHomePage(),
       routes: {
         AppRoutes.home: (_) => const MyHomePage(),
-        AppRoutes.userForm: (_) => const UserForm()
+        AppRoutes.userForm: (_) => UserForm()
       },
     );
   }
