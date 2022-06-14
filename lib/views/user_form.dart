@@ -3,11 +3,34 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:address_book_app/models/user.dart';
 
-class UserForm extends StatelessWidget {
-  UserForm({Key? key}) : super(key: key);
+class UserForm extends StatefulWidget {
+  const UserForm({Key? key}) : super(key: key);
 
+  @override
+  State<UserForm> createState() => _UserFormState();
+}
+
+class _UserFormState extends State<UserForm> {
   final _formulary = GlobalKey<FormState>();
+
   final Map<String, String> _formularyData = {};
+
+  void _loadFormularyData(User user) {
+    _formularyData['id'] = user.id!;
+    _formularyData['name'] = user.name;
+    _formularyData['phone'] = user.phone;
+    _formularyData['email'] = user.email!;
+    _formularyData['avatarUrl'] = user.avatarUrl!;
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final User? user = ModalRoute.of(context)?.settings.arguments as User?;
+    if (user != null) {
+      _loadFormularyData(user);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +47,15 @@ class UserForm extends StatelessWidget {
               onPressed: () {
                 if (_formulary.currentState!.validate()) {
                   _formulary.currentState?.save();
-
                   Provider.of<UserProvider>(context, listen: false).put(
                     User(
-                      id: _formularyData['id'] ?? '',
+                      id: _formularyData['id'],
                       name: _formularyData['name']!,
                       phone: _formularyData['phone']!,
                       email: _formularyData['email'],
                       avatarUrl: _formularyData['avatarUrl'],
                     ),
                   );
-
                   Navigator.of(context).pop();
                 }
               },
@@ -53,6 +74,7 @@ class UserForm extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 TextFormField(
+                  initialValue: _formularyData['name'],
                   decoration: const InputDecoration(labelText: 'Nome'),
                   validator: (value) {
                     if (value!.trim().isEmpty) {
@@ -63,6 +85,7 @@ class UserForm extends StatelessWidget {
                   onSaved: (value) => _formularyData['name'] = value!,
                 ),
                 TextFormField(
+                  initialValue: _formularyData['phone'],
                   decoration: const InputDecoration(labelText: 'Telefone'),
                   keyboardType: TextInputType.phone,
                   validator: (value) {
@@ -76,11 +99,13 @@ class UserForm extends StatelessWidget {
                   onSaved: (value) => _formularyData['phone'] = value!,
                 ),
                 TextFormField(
+                  initialValue: _formularyData['email'],
                   decoration: const InputDecoration(labelText: 'E-Mail'),
                   keyboardType: TextInputType.emailAddress,
                   onSaved: (value) => _formularyData['email'] = value!,
                 ),
                 TextFormField(
+                  initialValue: _formularyData['avatarUrl'],
                   decoration: const InputDecoration(labelText: 'URL Avatar:'),
                   onSaved: (value) => _formularyData['avatarUrl'] = value!,
                 ),

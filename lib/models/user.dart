@@ -1,16 +1,16 @@
 class User {
-  final String id;
-  final String name;
-  final String phone;
+  final String? id;
   final String? email;
   final String? avatarUrl;
-
+  final String name;
+  final String phone;
+  
   const User({
-    required this.id,
-    required this.name,
-    required this.phone,
+    this.id,
     this.email,
     this.avatarUrl,
+    required this.name,
+    required this.phone,
   });
 
   @override

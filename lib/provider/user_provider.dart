@@ -19,9 +19,11 @@ class UserProvider with ChangeNotifier {
   }
 
   void put(User user) {
-    if (user.id.trim().isNotEmpty && _items.containsKey(user.id)) {
+    if (user.id != null &&
+        user.id!.trim().isNotEmpty &&
+        _items.containsKey(user.id)) {
       _items.update(
-        user.id,
+        user.id!,
         (_) => User(
           id: user.id,
           name: user.name,
@@ -47,7 +49,7 @@ class UserProvider with ChangeNotifier {
   }
 
   void remove(User user) {
-    if (user.id.isNotEmpty) {
+    if (user.id != null && user.id!.isNotEmpty) {
       _items.remove(user.id);
       notifyListeners();
     }

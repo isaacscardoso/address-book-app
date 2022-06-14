@@ -7,7 +7,7 @@ class UserAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (avatar == null || avatar!.isEmpty) {
+    if (avatar == null || (avatar != null && avatar!.isEmpty)) {
       return const CircleAvatar(child: Icon(Icons.person));
     }
     return CircleAvatar(
