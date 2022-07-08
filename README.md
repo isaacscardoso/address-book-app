@@ -1,6 +1,6 @@
-# address_book_app
+# Address Book
 
-Friends List, implementation using the Dart language and the SDK Flutter.
+Friends schedule
 
 ## Getting Started
 
