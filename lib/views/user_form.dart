@@ -34,40 +34,41 @@ class _UserFormState extends State<UserForm> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          iconTheme: const IconThemeData(color: Colors.white),
-          title: const Text(
-            'Adicionar Contato',
-            style: TextStyle(color: Colors.white),
-          ),
-          actions: <Widget>[
-            IconButton(
-              onPressed: () {
-                if (_formulary.currentState!.validate()) {
-                  _formulary.currentState?.save();
-                  Provider.of<UserProvider>(context, listen: false).put(
-                    User(
-                      id: _formularyData['id'],
-                      name: _formularyData['name']!,
-                      phone: _formularyData['phone']!,
-                      email: _formularyData['email'],
-                      avatarUrl: _formularyData['avatarUrl'],
-                    ),
-                  );
-                  Navigator.of(context).pop();
-                }
-              },
-              icon: const Icon(
-                Icons.save,
-                color: Colors.white,
-              ),
-            ),
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
+        title: const Text(
+          'Adicionar Contato',
+          style: TextStyle(color: Colors.white),
         ),
-        body: Padding(
-          padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
+        centerTitle: true,
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {
+              if (_formulary.currentState!.validate()) {
+                _formulary.currentState?.save();
+                Provider.of<UserProvider>(context, listen: false).put(
+                  User(
+                    id: _formularyData['id'],
+                    name: _formularyData['name']!,
+                    phone: _formularyData['phone']!,
+                    email: _formularyData['email'],
+                    avatarUrl: _formularyData['avatarUrl'],
+                  ),
+                );
+                Navigator.of(context).pop();
+              }
+            },
+            icon: const Icon(
+              Icons.save,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
+        child: SingleChildScrollView(
           child: Form(
             key: _formulary,
             child: Column(

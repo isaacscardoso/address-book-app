@@ -16,6 +16,7 @@ class UserList extends StatelessWidget {
           'Agenda de Contatos',
           style: TextStyle(color: Colors.white),
         ),
+        centerTitle: true,
         actions: <Widget>[
           IconButton(
             onPressed: () {
